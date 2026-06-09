@@ -413,6 +413,7 @@ function initTickerVelocity() {
 
 // ── MARK: ERA TITLE ANIMATIONS ────────────────────────────────
 function initEraTitles1() {
+  console.log('initEraTitles1 aufgerufen, era1 elemente:', document.querySelectorAll('.era1').length);
   ScrollTrigger.getAll()
     .filter(t => t.vars.id?.startsWith("era-title-1"))
     .forEach(t => t.kill());
@@ -429,6 +430,8 @@ function initEraTitles1() {
           start: 'top 60%',
           end: 'top 40%',
           scrub: 1,
+          markers: false,
+          onEnter: () => console.log('era1 trigger fired', i),
         }
       }
     );
@@ -436,6 +439,7 @@ function initEraTitles1() {
 }
 
 function initEraTitles2() {
+  console.log('initEraTitles2 aufgerufen, era2 elemente:', document.querySelectorAll('.era2').length);
   ScrollTrigger.getAll()
     .filter(t => t.vars.id?.startsWith("era-title-2"))
     .forEach(t => t.kill());
@@ -452,6 +456,9 @@ function initEraTitles2() {
           start: 'top 60%',
           end: 'top 40%',
           scrub: 1,
+          markers: false,
+          onEnter: () => console.log('era2 trigger fired', i),
+          invalidateOnRefresh: true,
         }
       }
     );
@@ -459,6 +466,7 @@ function initEraTitles2() {
 }
 
 function initEraTitles3() {
+  console.log('initEraTitles3 aufgerufen, era3 elemente:', document.querySelectorAll('.era3').length);
   ScrollTrigger.getAll()
     .filter(t => t.vars.id?.startsWith("era-title-3"))
     .forEach(t => t.kill());
@@ -475,11 +483,15 @@ function initEraTitles3() {
           start: 'top 60%',
           end: 'top 40%',
           scrub: 1,
+          marker: false,
+          onEnter: () => console.log('era3 trigger fired', i),
+          invalidateOnRefresh: true,
         }
       }
     );
   });
 }
+
 
 
 // ── MARK: Storys mit Quotes ────────────────────────────────────────────
@@ -710,15 +722,15 @@ function setup() {
     }
   });
 
-  initEraTitles1();
-  initEraTitles2();
-  initEraTitles3();
+  // initEraTitles1();
+  // initEraTitles2();
+  // initEraTitles3();
   initIntroTyping();
-  initTickerObserver();
+  // initTickerObserver();
   initTickerVelocity();
-  initInstAds();
-  initHeadlines();
-  //initStoryPreview();
+  // initInstAds();
+  // initHeadlines();
+  // initStoryPreview();
   setupTicker(tickerSegments[0].text, '1');
 
   ScrollTrigger.create({

@@ -236,6 +236,22 @@ h1 {
     font-size: 45px;
     margin-top: 10px;
 }
+.year-era2 {
+    font-family: "Arizona Variable";
+    font-variation-settings: "SRFF" 50, "wght" 700;
+    line-height: 0.9;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 10px;
+}
+.year-era3 {
+    font-family: "Arizona Variable";
+    font-variation-settings: "SRFF" 0, "wght" 700;
+    line-height: 0.9;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 10px;
+}
 
 .year-title {
     position: relative;

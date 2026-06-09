@@ -422,13 +422,47 @@ function init() {
     initLazy();
     initDelayed();
 
-    // Headlines erst nach ScrollSmoother initialisieren
-    setTimeout(() => {
-        if (typeof initHeadlines === 'function') initHeadlines();
-        if (typeof initInstAds === 'function') initInstAds();
-        if (typeof initTickerObserver === 'function') initTickerObserver();
+    let afterLoadCalled = false;
+
+function initAfterLoad() {
+    if (afterLoadCalled) return;
+    afterLoadCalled = true;
+
+    if (typeof initHeadlines === 'function') initHeadlines();
+    if (typeof initInstAds === 'function') initInstAds();
+    if (typeof initTickerObserver === 'function') initTickerObserver();
+
+    function refreshEraTitles() {
+        if (typeof initEraTitles1 === 'function') initEraTitles1();
+        if (typeof initEraTitles2 === 'function') initEraTitles2();
+        if (typeof initEraTitles3 === 'function') initEraTitles3();
         ScrollTrigger.refresh();
-    }, 2000);
+    }
+
+    // Sofort + mehrfach wiederholen
+    refreshEraTitles();
+    [1000, 2000, 4000, 7000, 12000, 20000].forEach(ms => {
+        setTimeout(refreshEraTitles, ms);
+    });
+}
+
+    // Warte bis alle Bilder geladen
+    const images = document.querySelectorAll('img');
+    let loaded = 0;
+    const total = images.length;
+
+    function onImageLoad() {
+        loaded++;
+        if (loaded >= total) initAfterLoad();
+    }
+
+    images.forEach(img => {
+        if (img.complete) onImageLoad();
+        else img.addEventListener('load', onImageLoad);
+    });
+
+    // Fallback
+    setTimeout(initAfterLoad, 8000);
 }
 
 window.addEventListener('load', () => {
@@ -454,9 +488,6 @@ window.addEventListener('load', () => {
         if (img.complete) onImageLoad();
         else img.addEventListener('load', onImageLoad);
     });
-
-    // Fallback nach 3 Sekunden
-    setTimeout(() => ScrollTrigger.refresh(), 3500);
 });
 
 // Cleanup on pagehide to avoid leaks when navigating away
