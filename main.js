@@ -258,6 +258,19 @@ let currentEra = "era1";
 
 let tickerAnimation = null;
 
+  function fitAdText() {
+  document.querySelectorAll('.insta-ad h3').forEach(h3 => {
+    const box = h3.closest('.insta-ad');
+    const boxWidth = box.offsetWidth - 60; // padding
+    let size = 80;
+    h3.style.fontSize = size + 'px';
+    while (h3.scrollWidth > boxWidth && size > 10) {
+      size -= 2;
+      h3.style.fontSize = size + 'px';
+    }
+  });
+}
+
 function setupTicker(text) {
   const wrapper = document.querySelector('.quote-block-1');
   if (!wrapper) return;
@@ -540,18 +553,7 @@ function initInstAds() {
   });
 }
 
-  function fitAdText() {
-  document.querySelectorAll('.insta-ad h3').forEach(h3 => {
-    const box = h3.closest('.insta-ad');
-    const boxWidth = box.offsetWidth - 60; // padding
-    let size = 80;
-    h3.style.fontSize = size + 'px';
-    while (h3.scrollWidth > boxWidth && size > 10) {
-      size -= 2;
-      h3.style.fontSize = size + 'px';
-    }
-  });
-}
+
 
 // MARK: button storys
 
@@ -657,6 +659,7 @@ function setup() {
   initTickerObserver();
   initTickerVelocity();
   initInstAds();
+  initHeadlines();
   //initStoryPreview();
 
   ScrollTrigger.create({
