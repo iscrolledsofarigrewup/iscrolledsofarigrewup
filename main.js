@@ -14,241 +14,298 @@ window.isNavigating = false;
 
 const tickerSegments = [
   {
-    triggerId: null, // beim Eintreten in #j-2016
+    triggerId: null,
+    era: '1', // beim Eintreten in #j-2016
     text: `«Am 2. Juni 2016 steigt am Gotthard das grosse Fest» SRF News, 1. Juni 2016 ✦`
   },
   {
     triggerId: 'headline-ticker-2016-2',
+    era: '1',
     text: `«Brexit: Das war der denkwürdige 24. Juni im Live-Ticker» SRF News, 24. Juni 2016 ✦`
   },
   {
     triggerId: 'headline-ticker-2016-3',
+    era: '1',
     text: `«Das war die historische Wahl: Donald Trump ist US-Präsident» SRF News, 9. November 2016 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2017-1',
+    era: '1',
     text: `«Donald Trump ist Präsident – Das Protokoll zum Nachlesen» SRF News, 20. Januar 2017 ✦`
   },
   {
     triggerId: 'headline-ticker-2017-2',
+    era: '1',
     text: `«Präsident Macron, En Marche, EU» SRF 10vor10, 8. Mai 2017 ✦`
   },
   {
     triggerId: 'headline-ticker-2017-3',
+    era: '1',
     text: `«Stimmvolk heisst Energiegesetz mit 58 Prozent gut» SRF News, 21. Mai 2017 ✦`
   },
   {
     triggerId: 'headline-ticker-2017-4',
+    era: '1',
     text: `«Eine Stadt in Trauer – das Protokoll zum Nachlesen» SRF News, 23. Mai 2017 ✦`
   },
   {
     triggerId: 'headline-ticker-2017-5',
+    era: '1',
     text: `«Ignazio Cassis will die Schweiz ‹zusammenschmieden›» SRF News, 20. September 2017 ✦`
   },
   {
     triggerId: 'headline-ticker-2017-6',
+    era: '1',
     text: `«90 Tote bei Selbstmordanschlag in Mogadischu» SRF News, 14. Oktober 2017 ✦`
   },
   {
     triggerId: 'headline-ticker-2017-7',
+    era: '1',
     text: `«#MeToo: Wie sieht es fünf Jahre später aus?» SRF Kultur, Oktober 2017 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2018-1',
+    era: '1',
     text: `«Aufgebrachte Teenager bringen die Waffenlobby in Bedrängnis» SRF News, 24. März 2018 ✦`
   },
   {
     triggerId: 'headline-ticker-2018-2',
+    era: '1',
     text: `«Saudi-Arabien öffnet sich aus wirtschaftlicher Notwendigkeit» SRF News, 24. Juni 2018 ✦`
   },
   {
     triggerId: 'headline-ticker-2018-3',
+    era: '1',
     text: `«Alle zwölf Buben und ihr Trainer gerettet» SRF News, 10. Juli 2018 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2019-1',
+    era: '2',
     text: `«Löst China das Rätsel der Geburt des Mondes?» SRF News, 3. Januar 2019 ✦`
   },
   {
     triggerId: 'headline-ticker-2019-2',
+    era: '2',
     text: `«Forschern gelingt erstmals Foto eines Schwarzen Lochs» SRF News, 10. April 2019 ✦`
   },
   {
     triggerId: 'headline-ticker-2019-3',
+    era: '2',
     text: `«Grosser Regenschirm» für die beschädigte Kathedrale» SRF News, 16. April 2019 ✦`
   },
   {
     triggerId: 'headline-ticker-2019-4',
+    era: '2',
     text: `«Impeachment gegen US-Präsident Trump ist eingeleitet» SRF News, 19. Dezember 2019 ✦`
   },
   {
     triggerId: 'headline-ticker-2019-5',
-    text: `««Ein Funke reicht, und die Natur explodiert buchstäblich»» SRF News, 31. Dezember 2019 ✦`
+    era: '2',
+    text: `Ein Funke reicht, und die Natur explodiert buchstäblich» SRF News, 31. Dezember 2019 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2020-1',
+    era: '2',
     text: `«Was bekannt ist – und was nicht» SRF News, 10. Januar 2020 ✦`
   },
   {
     triggerId: 'headline-ticker-2020-2',
+    era: '2',
     text: `«Grossbritannien droht zum Versuchslabor des Chaos zu werden» SRF News, 31. Januar 2020 ✦`
   },
   {
     triggerId: 'headline-ticker-2020-3',
+    era: '2',
     text: `«Der Bundesrat beschliesst ausserordentliche Lage» SRF News, 16. März 2020 ✦`
   },
   {
     triggerId: 'headline-ticker-2020-4',
+    era: '2',
     text: `«Joe Biden gewinnt die Präsidentschaftswahl» SRF News, 7. November 2020 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2021-1',
+    era: '2',
     text: `«Ein Jahr Sturm aufs Kapitol — Die amerikanische Angst» SRF News, 6. Januar 2022 ✦`
   },
   {
     triggerId: 'headline-ticker-2021-2',
+    era: '2',
     text: `«Das waren die Highlights der Inauguration» SRF News, 21. Januar 2021 ✦`
   },
   {
     triggerId: 'headline-ticker-2021-3',
+    era: '2',
     text: `«Präsident verlässt das Land – Lage in Kabul bleibt angespannt» SRF News, 15. August 2021 ✦`
   },
   {
     triggerId: 'headline-ticker-2021-4',
+    era: '2',
     text: `«Letzter US-Soldat verlässt Afghanistan» SRF News, 30. August 2021 ✦`
   },
   {
     triggerId: 'headline-ticker-2021-5',
+    era: '2',
     text: `«Die Stimmberechtigten nehmen die Ehe für alle mit 64.1 Prozent klar an» SRF News, 26. September 2021 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2022-1',
+    era: '2',
     text: `«Seit drei Jahren hat der Krieg die Ukraine fest in der Hand» SRF News, 24. Februar 2022 ✦`
   },
   {
     triggerId: 'headline-ticker-2022-2',
+    era: '2',
     text: `«Twitter stimmt Übernahme durch Elon Musk zu» SRF News, 25. April 2022 ✦`
   },
   {
     triggerId: 'headline-ticker-2022-3',
+    era: '2',
     text: `«Queen Elizabeth II. ist tot – Charles III. übernimmt» SRF News, 8. September 2022 ✦`
   },
   {
     triggerId: 'headline-ticker-2022-4',
+    era: '2',
     text: `«Stimmvolk sagt Ja zu AHV-Vorlagen» SRF News, 25. September 2022 ✦`
   },
   {
     triggerId: 'headline-ticker-2022-5',
+    era: '2',
     text: `«Ein Jahr später: Wofür ist ChatGPT eigentlich gut?» SRF News, 30. November 2022 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2023-1',
+    era: '3',
     text: `«Was bei der CS-Übernahme hinter den Kulissen geschah» SRF News, 19. März 2023 ✦`
   },
   {
     triggerId: 'headline-ticker-2023-2',
+    era: '3',
     text: `«Netanjahu feuert Verteidigungsminister Galant – wütende Proteste» SRF News, 27. März 2023 ✦`
   },
   {
     triggerId: 'headline-ticker-2023-3',
+    era: '3',
     text: `«Tiktok-Chef findet kein Gehör im US-Kongress» SRF News, 24. März 2023 ✦`
   },
   {
     triggerId: 'headline-ticker-2023-4',
+    era: '3',
     text: `«Finnland: einst neutral, jetzt das 31. Allianzmitglied» SRF News, 4. April 2023 ✦`
   },
   {
     triggerId: 'headline-ticker-2023-5',
+    era: '3',
     text: `«Eskalation im Nahen Osten: Warum genau jetzt?» SRF News, 8. Oktober 2023 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2024-1',
+    era: '3',
     text: `«Nato: grösser, stärker – und verunsichert» SRF News, 26. Februar 2024 ✦`
   },
   {
     triggerId: 'headline-ticker-2024-2',
+    era: '3',
     text: `«Die 13. AHV-Rente – ein Denkzettel für Bundesrat und Parlament» SRF News, 3. März 2024 ✦`
   },
   {
     triggerId: 'headline-ticker-2024-3',
+    era: '3',
     text: `«Was man über das Attentat auf Donald Trump weiss» SRF News, 15. Juli 2024 ✦`
   },
   {
     triggerId: 'headline-ticker-2024-4',
+    era: '3',
     text: `«Trumps Wiederwahl wird die USA weiter polarisieren» SRF News, 6. November 2024 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2025-1',
+    era: '3',
     text: `«Inauguration 2025 live: Trump ist der 47. Präsident der USA» SRF News, 20. Januar 2025 ✦`
   },
   {
     triggerId: 'headline-ticker-2025-2',
+    era: '3',
     text: `«Papst Franziskus ist tot: So geht es weiter» SRF News, 21. April 2025 ✦`
   },
   {
     triggerId: 'headline-ticker-2025-3',
+    era: '3',
     text: `«US-Amerikaner Prevost ist Papst Leo XIV. – die Welt gratuliert» SRF News, 8. Mai 2025 ✦`
   },
   {
     triggerId: 'headline-ticker-2025-4',
+    era: '3',
     text: `«Israel greift Atomanlagen im Iran an – das ist bekannt» SRF News, 13. Juni 2025 ✦`
   },
   {
     triggerId: 'headline-ticker-2025-5',
+    era: '3',
     text: `«Gaza: Von IPC ausgerufene Hungersnot trifft Kinder hart» SRF News, 22. August 2025 ✦`
   },
   {
     triggerId: 'headline-ticker-2025-6',
+    era: '3',
     text: `«Trump-Unterstützer Charlie Kirk nach Schuss gestorben» SRF News, 10. September 2025 ✦`
   },
   {
     triggerId: 'headline-ticker-2025-7',
+    era: '3',
     text: `«Proteste im Iran: Trump droht» SRF News, 31. Dezember 2025 ✦`
   },
 
   {
     triggerId: 'headline-ticker-2026-1',
+    era: '3',
     text: `«Dutzende Tote in Crans-Montana nach Brand: Was bekannt ist» SRF News, 2. Januar 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-2',
+    era: '3',
     text: `«USA überfallen Venezuela und entführen Maduro – ein Überblick» SRF News, 3. Januar 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-3',
+    era: '3',
     text: `«Neue Epstein-Akten publik: Das Brisanteste im Überblick» SRF News, 30. Januar 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-4',
+    era: '3',
     text: `«Olympische Spiele 2026 im San Siro feierlich eröffnet» SRF Sport, 6. Februar 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-5',
+    era: '3',
     text: `«Wie der Iran-Krieg Indiens Wirtschaft in die Enge treibt» SRF News, 10. März 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-6',
+    era: '3',
     text: `«Iran-Krieg erfasst den Libanon mit voller Wucht» SRF News, 14. März 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-7',
+    era: '3',
     text: `«Taliban: Hunderte Tote bei Angriff auf Spital in Kabul» SRF News, 17. März 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-8',
+    era: '3',
     text: `«Artemis-2-Astronauten erreichen historisch weiteste Distanz zur Erde» SRF News, 6. April 2026 ✦`
   },
   {
     triggerId: 'headline-ticker-2026-9',
+    era: '3',
     text: `«Schock nach israelischen Bombardierungen» SRF News, 9. April 2026 ✦`
   },
 
@@ -258,7 +315,7 @@ let currentEra = "era1";
 
 let tickerAnimation = null;
 
-  function fitAdText() {
+function fitAdText() {
   document.querySelectorAll('.insta-ad h3').forEach(h3 => {
     const box = h3.closest('.insta-ad');
     const boxWidth = box.offsetWidth - 60; // padding
@@ -271,9 +328,11 @@ let tickerAnimation = null;
   });
 }
 
-function setupTicker(text) {
+function setupTicker(text, era = '1') {
   const wrapper = document.querySelector('.quote-block-1');
   if (!wrapper) return;
+
+  wrapper.className = `quote-block-1 ticker-era${era}`;
 
   const inner = wrapper.querySelector('.ticker-inner');
   const doubled = `${text}   ${text}`;
@@ -292,10 +351,9 @@ function setupTicker(text) {
     return;
   }
 
-  // Text wechseln ohne Sprung
   const currentX = gsap.getProperty(inner, 'x');
   const progress = Math.abs(currentX) / (inner.scrollWidth / 2);
-  
+
   inner.textContent = doubled;
   const fullWidth = inner.scrollWidth / 2;
   const newX = -(progress * fullWidth);
@@ -323,7 +381,7 @@ function initTickerObserver() {
     entries.forEach(entry => {
       if (entry.isIntersecting && !window.isNavigating) {
         const segment = tickerSegments.find(s => s.triggerId === entry.target.id);
-        if (segment) setupTicker(segment.text);
+        if (segment) setupTicker(segment.text, segment.era || '1');
       }
     });
   }, {
@@ -470,7 +528,7 @@ function showHeadline(triggerId) {
     }
   });
 
-gsap.fromTo('#headline-timer-line',
+  gsap.fromTo('#headline-timer-line',
     { drawSVG: '0%' },
     {
       drawSVG: '100%', duration: 10, ease: 'none',
@@ -588,7 +646,7 @@ function initStoryPreview() {
   });
 }
 
-  
+
 
 
 
@@ -661,6 +719,7 @@ function setup() {
   initInstAds();
   initHeadlines();
   //initStoryPreview();
+  setupTicker(tickerSegments[0].text, '1');
 
   ScrollTrigger.create({
     trigger: '#j-2016 .post-wrapper',
