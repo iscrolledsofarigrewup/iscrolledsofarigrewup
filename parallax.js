@@ -226,7 +226,7 @@ function initWrapper(wrapper) {
             fadeInStart: "top 60%",
             floaters: [
                 { speedY: -1000, speedX: 20, scale: 2 },
-                { speedY: -300, speedX: -15, scale: 3 },
+                { speedY: -300, speedX: -5, scale: 3 },
             ],
         },
 

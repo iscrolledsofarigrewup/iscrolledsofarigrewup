@@ -587,9 +587,12 @@ function hideHeadline() {
 function initHeadlines() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !entry.target._shown) {
+        entry.target._shown = true;
         showHeadline(entry.target.id);
-        observer.unobserve(entry.target);
+      }
+      if (!entry.isIntersecting) {
+        entry.target._shown = false;
       }
     });
   }, {
