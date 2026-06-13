@@ -733,9 +733,9 @@ function setup() {
     }
   });
 
-  // initEraTitles1();
-  // initEraTitles2();
-  // initEraTitles3();
+  initEraTitles1();
+  initEraTitles2();
+  initEraTitles3();
   initIntroTyping();
   // initTickerObserver();
   initTickerVelocity();
