@@ -49,7 +49,8 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse 115% 70% at 50% 45%, #ffffff01 40%, #bbe002ff 75%, #bbe002ff 100%);
+    background: radial-gradient(ellipse 140% 70% at 50% 45%, #bbe00200 40%, #bbe002ff 75%, #bbe002ff 100%);
+    
     pointer-events: none;
     z-index: 210;
     transition: background 0.8s ease;
@@ -708,7 +709,7 @@ h1 {
 .headline-wrapper {
     height: 100%;
     width: 100%;
-    background: radial-gradient(ellipse 115% 70% at 50% 45%, #ffffff01 40%, #afd4ffff 75%, #afd4ffff 100%);
+    background: radial-gradient(ellipse 140% 70% at 50% 45%, #afd4ff01 40%, #afd4ffff 75%, #afd4ffff 100%);
     z-index: 200;
     display: flex;
     flex-direction: column;

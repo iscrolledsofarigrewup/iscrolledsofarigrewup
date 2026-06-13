@@ -11,7 +11,6 @@ function navigateTo(link) {
   const target = hash ? document.querySelector(hash) : null;
   if (!target) return;
 
-   // Ads ausblenden wenn zu Outro oder Impressum navigiert wird
   if (hash === '#outro' || hash === '#impressum') {
     document.querySelectorAll('.insta-ad').forEach(ad => {
       gsap.to(ad, { autoAlpha: 0, duration: 0.3 });
@@ -22,25 +21,42 @@ function navigateTo(link) {
   link.classList.add('nav-active');
   activeLink = link;
 
+  setTimeout(() => {
+    link.classList.remove('nav-active');
+    if (activeLink === link) activeLink = null;
+  }, 600);
+
   window.isNavigating = true;
   const smoother = ScrollSmoother.get();
   if (smoother) {
     smoother.paused(false);
-    requestAnimationFrame(() => {
-      smoother.scrollTo(target, false, "center center");
-      setTimeout(() => { 
-        window.isNavigating = false; 
-        window.updateTickerForCurrentPosition?.(); 
-      }, 800);
-    });
+    setTimeout(() => {
+      smoother.scrollTo(target, false, "top top");
+      setTimeout(() => {
+        smoother.scrollTo(target, false, "center center");
+        setTimeout(() => {
+          window.isNavigating = false;
+          window.updateTickerForCurrentPosition?.();
+        }, 800);
+      }, 400);
+    }, 50);
   } else {
     target.scrollIntoView({ behavior: 'instant', block: 'start' });
     setTimeout(() => { window.isNavigating = false; }, 300);
   }
 }
 
-// Rest bleibt gleich
 links.forEach(link => {
+  link.addEventListener('touchstart', () => {
+    link.classList.add('nav-active');
+  }, { passive: true });
+
+  link.addEventListener('touchend', () => {
+    setTimeout(() => {
+      link.classList.remove('nav-active');
+    }, 300);
+  }, { passive: true });
+
   link.addEventListener('click', e => {
     e.preventDefault();
     navigateTo(link);

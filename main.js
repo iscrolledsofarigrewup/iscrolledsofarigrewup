@@ -405,7 +405,8 @@ function initTickerVelocity() {
       if (!tickerAnimation) return;
       const velocity = self.getVelocity();
       const scale = velocity / 500;
-      tickerAnimation.timeScale(Math.abs(scale) < 0.1 ? 1 : scale);
+      const clamped = Math.max(-8, Math.min(8, scale));
+      tickerAnimation.timeScale(Math.abs(clamped) < 0.1 ? 1 : clamped);
     }
   });
 }
@@ -570,8 +571,8 @@ function showHeadline(triggerId) {
 }
 
 function hideHeadline() {
-  if (!headlineActive) return; // ← nichts tun wenn keine Headline aktiv
-  headlineActive = false; // ← zurücksetzen
+  if (!headlineActive) return;
+  headlineActive = false;
 
   gsap.killTweensOf('#headline-timer-line');
   gsap.killTweensOf('.gradient-headline');
@@ -582,21 +583,28 @@ function hideHeadline() {
   if (gradEl) gradEl.style.pointerEvents = 'none';
   const smoother = ScrollSmoother.get();
   if (smoother) smoother.paused(false);
+
+  // Kurze Sperre damit dieselbe Story nicht sofort wieder feuert
+  window.isNavigating = true;
+  setTimeout(() => { window.isNavigating = false; }, 1000);
 }
 
 function initHeadlines() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target._shown) {
+      if (entry.isIntersecting && !entry.target._shown && !headlineActive && !window.isNavigating) {
         entry.target._shown = true;
         showHeadline(entry.target.id);
       }
       if (!entry.isIntersecting) {
-        entry.target._shown = false;
+        // Nur zurücksetzen wenn keine Headline aktiv läuft
+        if (!headlineActive) {
+          entry.target._shown = false;
+        }
       }
     });
   }, {
-    threshold: 0.5 // Element muss 50% sichtbar sein
+    threshold: 0.5
   });
 
   document.querySelectorAll('[id^="quote-trigger-"]').forEach(triggerEl => {
